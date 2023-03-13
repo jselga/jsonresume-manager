@@ -20,6 +20,8 @@ window.Vue = require('vue').default;
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('resume-form', require('./components/resume/ResumeForm.vue').default);
+Vue.component('FieldResumeImage', require('./components/resume/vfg/FieldResumeImage.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
