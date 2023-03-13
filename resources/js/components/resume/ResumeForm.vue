@@ -14,7 +14,15 @@
         :options="options"
         />
       </Tab>
-     
+      <Tab title="Profiles" icon="fas fa-users">
+        
+        <DynamicForm 
+         title="Profile"
+         self="profiles"
+         :model="resume.content.basics" 
+         :schema="schemas.profiles"
+        />
+      </Tab> 
     </Tabs>
   </div>
 </template>
@@ -26,13 +34,16 @@
 // import { BTab} from 'bootstrap-vue';
 // Vue.component('BTabs',BTabs);
 // Vue.component('BTab',BTab);
-import FieldResumeImage from './vfg/FieldResumeImage.vue';
+
 import Tabs from './tabs/Tabs.vue';
 import Tab from './tabs/Tab.vue';
 import basics from './schema/basics/basics';
 import location from './schema/basics/location';
+import profiles from './schema/basics/profiles';
 import { component as VueFormGenerator } from 'vue-form-generator';
-import 'vue-form-generator/dist/vfg.css' 
+import 'vue-form-generator/dist/vfg.css';
+import FieldResumeImage from './vfg/FieldResumeImage.vue';
+import DynamicForm from './dynamic/DynamicForm.vue';
 export default {
 
 
@@ -43,6 +54,7 @@ export default {
     Tab,
     VueFormGenerator,
     FieldResumeImage,
+    DynamicForm,
   },
   data(){
     return{
@@ -51,7 +63,7 @@ export default {
         content:{
           basics:{
             location:{},
-            picture:{},
+         
           },
           
         }
@@ -59,12 +71,13 @@ export default {
       schemas: {
         basics,
         location,
+        profiles,
       },
       options: {
         validateAfterLoad: true,
         validateAfterChanged: true,
         validateAsync: true,
-      }
+      },
     }
   }
 };
